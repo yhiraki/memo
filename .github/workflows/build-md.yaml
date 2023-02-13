@@ -13,12 +13,14 @@ jobs:
         with:
           entrypoint: /bin/bash
           args: run.sh
+      - name: dist to tmp
+        run: mv dist /tmp
       - uses: actions/checkout@v3
         with:
           ref: pages
       - name: Commit and push
         run: |
           rm -rf docs
-          mv dist docs
+          mv /tmp/dist docs
           git status
           git add **/*.md
