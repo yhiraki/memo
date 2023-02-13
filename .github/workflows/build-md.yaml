@@ -15,7 +15,7 @@ jobs:
           args: >-
             -name '*.org'
             -type f
-            -exec sh -c
+            -exec /bin/ash -c
             'pandoc "${0}" -o "${0%.org}.md"'
             {} \;
       - uses: actions/checkout@v3
