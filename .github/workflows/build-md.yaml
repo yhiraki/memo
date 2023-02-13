@@ -12,7 +12,8 @@ jobs:
       - uses: docker://pandoc/core:3.1
         with:
         #   entrypoint: /github/workspace/run.sh
-           entrypoint: ls -Ra
+           entrypoint: /bin/ls
+           args: -aR
       - uses: actions/checkout@v3
         with:
           ref: pages
