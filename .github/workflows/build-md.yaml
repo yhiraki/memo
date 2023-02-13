@@ -22,3 +22,5 @@ jobs:
           mv dist docs
           git status
           git add **/*.md
+          git commit -m 'update'
+          git push origin pages
