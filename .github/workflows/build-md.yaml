@@ -12,12 +12,11 @@ jobs:
       - uses: docker://pandoc/core:3.1
         with:
         #   entrypoint: /github/workspace/run.sh
-           entrypoint: /bin/ls
-           args: -aR
+           entrypoint: /bin/pwd
       - uses: actions/checkout@v3
         with:
           ref: pages
       - name: Commit and push
         run: |
-          ls -R
           git add **/*.md
+          git status
