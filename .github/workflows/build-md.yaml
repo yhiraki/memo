@@ -1,0 +1,29 @@
+name: Build Markdown files
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: docs
+    steps:
+      - uses: actions/checkout@v3
+      - uses: docker://pandoc/core:3.1
+        with:
+          entrypoint: bash -c
+          args: >-
+            find ./
+            -name '*.org'
+            -type f
+            -exec sh -c
+            'pandoc "${0}" -o "${0%.org}.md"'
+            {} \;
+      - name: Commit and push
+        run: |
+          ls -R
+          git checkout pages
