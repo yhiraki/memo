@@ -12,8 +12,16 @@ jobs:
       - uses: docker://pandoc/core:3.1
         with:
           entrypoint: /usr/bin/find
-          args: docs -name '*.org'
+          args: >-
+            -name '*.org' \
+            -type f \
+            -exec sh -c \
+            'pandoc "${0}" -o "${0%.org}.md"' \
+            {} \;
+      - uses: actions/checkout@v3
+        with:
+          ref: pages
       - name: Commit and push
         run: |
           ls -R
-          git checkout pages
+          git add **/*.md
