@@ -7,24 +7,20 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash
-        working-directory: docs
     steps:
       - uses: actions/checkout@v3
       - uses: docker://pandoc/core:3.1
         with:
-          entrypoint:
-            - /bin/ash
+          entrypoint: /bin/ash
+          args:
             - -c
-          args: >-
-            find ./
-            -name '*.org'
-            -type f
-            -exec sh -c
-            'pandoc "${0}" -o "${0%.org}.md"'
-            {} \;
+            - >-
+              find ./
+              -name '*.org'
+              -type f
+              -exec sh -c
+              'pandoc "${0}" -o "${0%.org}.md"'
+              {} \;
       - name: Commit and push
         run: |
           ls -R
