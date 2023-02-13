@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: docker://pandoc/core:3.1
         with:
-          entrypoint: bash -c
+          entrypoint: sh -c
           args: >-
             find ./
             -name '*.org'
