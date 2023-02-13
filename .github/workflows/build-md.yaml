@@ -12,15 +12,15 @@ jobs:
       - uses: docker://pandoc/core:3.1
         with:
           entrypoint: /bin/ash
-          args:
-            - -c
-            - >-
-              find ./
-              -name '*.org'
-              -type f
-              -exec sh -c
-              'pandoc "${0}" -o "${0%.org}.md"'
-              {} \;
+          args: >-
+            -c '
+            find ./
+            -name '*.org'
+            -type f
+            -exec sh -c
+            'pandoc "${0}" -o "${0%.org}.md"'
+            {} \;
+            '
       - name: Commit and push
         run: |
           ls -R
