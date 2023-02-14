@@ -1,0 +1,34 @@
+:PROPERTIES:
+:ID:       06FC51D1-8E0E-4D23-B2E1-7C31E4C95382
+:END:
+#+title: timeitデコレータ
+* 関数の実行時間を計測する
+
+#+name: timeit
+#+begin_src python
+  import time
+
+
+  def timeit(func):
+      def w(*a, **kw):
+          s = time.time()
+          func(*a, *kw)
+          e = (time.time() - s) * 1000
+          print(f"{e:0.3} ms")
+
+      return w
+#+end_src
+
+* 使い方
+
+#+begin_src python :noweb strip-export
+  <<timeit>>
+  @timeit
+  def run():
+      sum(i for i in range(1_000_000))
+
+  run()
+#+end_src
+
+#+RESULTS[962b3ae36528bf1b184d0e49e70815894ffcf5e2]:
+: 30.9 ms
