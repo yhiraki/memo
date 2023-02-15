@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-02-15 Wed 12:37 -->
+<!-- 2023-02-15 Wed 17:33 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>timeitデコレータ</title>
@@ -231,17 +231,17 @@
 <h2 id="org35261b0"><span class="section-number-2">1</span> 関数の実行時間を計測する</h2>
 <div class="outline-text-2" id="text-1">
 <div class="org-src-container">
-<pre class="src src-python" id="org3d82d4c">import time
+<pre class="src src-python" id="org3d82d4c"><span style="font-weight: bold;">import</span> time
 
 
-def timeit(func):
-    def w(*a, **kw):
-	s = time.time()
-	func(*a, *kw)
-	e = (time.time() - s) * 1000
-	print(f"{e:0.3} ms")
+<span style="font-weight: bold;">def</span> <span style="font-weight: bold;">timeit</span>(func):
+    <span style="font-weight: bold;">def</span> <span style="font-weight: bold;">w</span>(*a, **kw):
+        <span style="font-weight: bold; font-style: italic;">s</span> = time.time()
+        func(*a, *kw)
+        <span style="font-weight: bold; font-style: italic;">e</span> = (time.time() - s) * 1000
+        <span style="font-weight: bold;">print</span>(f<span style="font-style: italic;">"{e:0.3} ms"</span>)
 
-    return w
+    <span style="font-weight: bold;">return</span> w
 </pre>
 </div>
 </div>
@@ -252,9 +252,9 @@ def timeit(func):
 <div class="outline-text-2" id="text-2">
 <div class="org-src-container">
 <pre class="src src-python">
-@timeit
-def run():
-    sum(i for i in range(1_000_000))
+<span style="font-weight: bold; text-decoration: underline;">@timeit</span>
+<span style="font-weight: bold;">def</span> <span style="font-weight: bold;">run</span>():
+    <span style="font-weight: bold;">sum</span>(i <span style="font-weight: bold;">for</span> i <span style="font-weight: bold;">in</span> <span style="font-weight: bold;">range</span>(1_000_000))
 
 run()
 </pre>
@@ -263,7 +263,7 @@ run()
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2023-02-15 Wed 12:37</p>
+<p class="date">Created: 2023-02-15 Wed 17:33</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
