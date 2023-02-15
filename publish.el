@@ -1,4 +1,6 @@
 (require 'org)
+(add-to-list 'load-path "./site_lisp")
+(require 'htmlize)
 (setq org-publish-project-alist
 	  '(("Memo"
 		 :base-directory "./src"
