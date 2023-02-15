@@ -6,7 +6,7 @@
 <!-- 2023-02-15 Wed 09:47 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>&lrm;</title>
+<title>pytestのテスト対象ディスカバリーの動作</title>
 <meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
@@ -217,17 +217,15 @@
 </head>
 <body>
 <div id="content">
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#org5604b4a">1. a</a></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org5604b4a" class="outline-2">
-<h2 id="org5604b4a"><span class="section-number-2">1</span> a</h2>
-</div>
+<h1 class="title">pytestのテスト対象ディスカバリーの動作</h1>
+<ol class="org-ol">
+<li><code>test_*.py</code> または <code>*_test.py</code> というファイルをカレントディレクトリから再起的に探す</li>
+<li>ファイル内の <code>test_</code> で始まる関数やメソッドをテスト実行対象とする</li>
+</ol>
+
+<p>
+参考: <a href="https://docs.pytest.org/en/7.2.x/explanation/goodpractices.html#conventions-for-python-test-discovery">https://docs.pytest.org/en/7.2.x/explanation/goodpractices.html#conventions-for-python-test-discovery</a>
+</p>
 </div>
 <div id="postamble" class="status">
 <p class="date">Created: 2023-02-15 Wed 09:47</p>
