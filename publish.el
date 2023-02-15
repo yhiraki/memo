@@ -2,7 +2,9 @@
 (setq org-publish-project-alist
 	  '(("Memo"
 		 :base-directory "./src"
-		 :recursive t
 		 :publishing-directory "./dist"
-		 :publishing-function org-html-publish-to-html)))
+		 :publishing-function org-html-publish-to-html
+		 :recursive t
+		 :with-author nil
+		 )))
 (org-publish-project "Memo")
