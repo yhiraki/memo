@@ -21,7 +21,7 @@
 
 * 使い方
 
-#+begin_src python :noweb strip-export
+#+begin_src python :noweb strip-export :exports both
   <<timeit>>
   @timeit
   def run():

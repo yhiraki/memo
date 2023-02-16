@@ -11,6 +11,8 @@
 		 :recursive t
 		 :section-numbers nil
 		 :with-author nil
+		 :with-date nil
 		 :with-timestamps nil
+		 :with-toc nil
 		 )))
 (org-publish-project "Memo")
