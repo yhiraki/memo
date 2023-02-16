@@ -15,4 +15,8 @@
 		 :with-timestamps nil
 		 :with-toc nil
 		 )))
+(setq org-publish-use-timestamps-flag nil)
+(setq org-html-postamble t)
+(setq org-html-postamble-format
+	  '(("en" "<p class=\"date\">Date: %d</p>")))
 (org-publish-project "Memo")
