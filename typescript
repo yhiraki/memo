@@ -1,51 +1,0 @@
-Script started on 2023-02-16 02:35:53+00:00 [<not executed on terminal>]
-mkdir site_lisp
-curl https://raw.githubusercontent.com/hniksic/emacs-htmlize/master/htmlize.el -o site_lisp/htmlize.el
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 20 75379   20 15524    0     0  89678      0 --:--:-- --:--:-- --:--:-- 89218100 75379  100 75379    0     0   384k      0 --:--:-- --:--:-- --:--:--  383k
-TERM=xterm-256color emacs -Q -nw -l publish.el -f kill-emacs
-[?1049h[22;0;0t[?12;25h[?1h=[H[2J[24d[K[?1l>[?12l[?25h[?1049l[23;0;0t[39;49m[?1049h[22;0;0t[?12;25h[?1h=[>0c[?2004h[?1004h[H[2J[23d[?25l[30m[48;5;250m-UUU:----F1  [39;49m[1m[30m[48;5;250m*scratch*   [0m[39;49m[30m[48;5;250m   All L1     (Lisp Interaction ElDoc) ----------------[39;49m
-[A[2d[?12l[?25h[?12;25h[24d[?25lh-to-html’[K[H[7mFile Edit Options Buffers Tools Lisp-Interaction Help                           [0m[39;49m[27m
-[A
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[30m[48;5;250m-UUU:----F1  [39;49m[1m[30m[48;5;250m*scratch*   [0m[39;49m[30m[48;5;250m   All L1     (Lisp Interaction ElDoc) ----------------[39;49m
-[A
-Publishing file /home/runner/work/memo/memo/src/hoge.org using ‘org-html-publis\
-[A[2d[?12l[?25h[?12;25h[24d[K[A[?25lorg-babel-exp process python at position 41...[K[H
-[?12l[?25h[?12;25h[23d[?25lCan’t guess python-indent-offset, using defaults: 4[H
-[?12l[?25h[?12;25h[23d[?25lSaving file /home/runner/work/memo/memo/dist/hoge.html...[H
-[?12l[?25h[?12;25h[23d[?25lWrote /home/runner/work/memo/memo/dist/hoge.html[K[H
-[?12l[?25h[?12;25h[24d[?25l.org using ‘org-html-publish-to-html’[APublishing file /home/runner/work/memo/memo/src/20230214093517-timeitデコレータ\
-[2d[?12l[?25h[?12;25h[24d[K[A[?25lorg-babel-exp process python at position 120...[K[H
-[?12l[?25h[?12;25h[23;42H[?25l308[H
-[?12l[?25h[?12;25h[23d[?25lCan’t guess python-indent-offset, using defaults: 4[H
-[?12l[?25h[?12;25h[24d[?25lml...[ASaving file /home/runner/work/memo/memo/dist/20230214093517-timeitデコレータ.ht\
-[2d[?12l[?25h[?12;25h[24d[K[A[?25lWrote /home/runner/work/memo/memo/dist/20230214093517-timeitデコレータ.html[K[H
-[?12l[?25h[?12;25h[24d[?25lublish-to-html’[APublishing file /home/runner/work/memo/memo/src/fuga/fuga.org using ‘org-html-p\
-[2d[?12l[?25h[?12;25h[24d[K[A[?25lSaving file /home/runner/work/memo/memo/dist/fuga/fuga.html...[K[H
-[?12l[?25h[?12;25h[23d[?25lWrote /home/runner/work/memo/memo/dist/fuga/fuga.html[K[H
-[?12l[?25h[?12;25h[24d[?25l象ディスカバリーの動作.org using ‘org-html-publish-to-html’[APublishing file /home/runner/work/memo/memo/src/20230215184440-pytestのテスト対\
-[2d[?12l[?25h[?12;25h[24d[?25lディスカバリーの動作.html...[K[ASaving file /home/runner/work/memo/memo/dist/20230215184440-pytestのテスト対象\[H
-[?12l[?25h[?12;25h[24d[?25lカバリーの動作.html[K[AWrote /home/runner/work/memo/memo/dist/20230215184440-pytestのテスト対象ディス[H
-[?12l[?25h[?12;25h[24d[K[?1004l[?2004l[?1l>[?12l[?25h[?1049l[23;0;0t[39;49m
-Script done on 2023-02-16 02:35:54+00:00 [COMMAND_EXIT_CODE="0"]
