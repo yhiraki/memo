@@ -1,7 +1,7 @@
 :PROPERTIES:
 :ID:       06FC51D1-8E0E-4D23-B2E1-7C31E4C95382
 :END:
-#+DATE: 2023-02-16 17:01:28
+#+DATE: 2023-02-16 17:04:09
 #+title: timeitデコレータ
 * 関数の実行時間を計測する
 
@@ -33,8 +33,3 @@
 
 #+RESULTS[962b3ae36528bf1b184d0e49e70815894ffcf5e2]:
 : 30.9 ms
-
-
-#+begin_src elisp
-(org-collect-keywords '("TITLE"))
-#+end_src
