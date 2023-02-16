@@ -1,4 +1,4 @@
-name: Build Markdown files
+name: Build HTML
 on:
   push:
     branches:
