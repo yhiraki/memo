@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-02-16 Thu 00:53 -->
+<!-- 2023-02-16 Thu 02:35 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>timeitデコレータ</title>
@@ -220,39 +220,39 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org35261b0">関数の実行時間を計測する</a></li>
-<li><a href="#org22df4e5">使い方</a></li>
+<li><a href="#orge5c9cb6">関数の実行時間を計測する</a></li>
+<li><a href="#org84091be">使い方</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org35261b0" class="outline-2">
-<h2 id="org35261b0">関数の実行時間を計測する</h2>
-<div class="outline-text-2" id="text-org35261b0">
+<div id="outline-container-orge5c9cb6" class="outline-2">
+<h2 id="orge5c9cb6">関数の実行時間を計測する</h2>
+<div class="outline-text-2" id="text-orge5c9cb6">
 <div class="org-src-container">
-<pre class="src src-python" id="org3d82d4c"><span style="font-weight: bold;">import</span> time
+<pre class="src src-python" id="orgaeeae42"><span style="color: #a020f0;">import</span> time
 
 
-<span style="font-weight: bold;">def</span> <span style="font-weight: bold;">timeit</span>(func):
-    <span style="font-weight: bold;">def</span> <span style="font-weight: bold;">w</span>(*a, **kw):
-        <span style="font-weight: bold; font-style: italic;">s</span> = time.time()
+<span style="color: #a020f0;">def</span> <span style="color: #0000ff;">timeit</span>(func):
+    <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">w</span>(*a, **kw):
+        <span style="color: #a0522d;">s</span> = time.time()
         func(*a, *kw)
-        <span style="font-weight: bold; font-style: italic;">e</span> = (time.time() - s) * 1000
-        <span style="font-weight: bold;">print</span>(f<span style="font-style: italic;">"{e:0.3} ms"</span>)
+        <span style="color: #a0522d;">e</span> = (time.time() - s) * 1000
+        <span style="color: #a020f0;">print</span>(f<span style="color: #8b2252;">"{e:0.3} ms"</span>)
 
-    <span style="font-weight: bold;">return</span> w
+    <span style="color: #a020f0;">return</span> w
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org22df4e5" class="outline-2">
-<h2 id="org22df4e5">使い方</h2>
-<div class="outline-text-2" id="text-org22df4e5">
+<div id="outline-container-org84091be" class="outline-2">
+<h2 id="org84091be">使い方</h2>
+<div class="outline-text-2" id="text-org84091be">
 <div class="org-src-container">
 <pre class="src src-python">
-<span style="font-weight: bold; text-decoration: underline;">@timeit</span>
-<span style="font-weight: bold;">def</span> <span style="font-weight: bold;">run</span>():
-    <span style="font-weight: bold;">sum</span>(i <span style="font-weight: bold;">for</span> i <span style="font-weight: bold;">in</span> <span style="font-weight: bold;">range</span>(1_000_000))
+<span style="color: #228b22;">@timeit</span>
+<span style="color: #a020f0;">def</span> <span style="color: #0000ff;">run</span>():
+    <span style="color: #483d8b;">sum</span>(i <span style="color: #a020f0;">for</span> i <span style="color: #a020f0;">in</span> <span style="color: #483d8b;">range</span>(1_000_000))
 
 run()
 </pre>
@@ -261,7 +261,7 @@ run()
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2023-02-16 Thu 00:53</p>
+<p class="date">Created: 2023-02-16 Thu 02:35</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
