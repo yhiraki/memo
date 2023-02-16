@@ -19,6 +19,7 @@ jobs:
         run: make
       - name: Commit and push
         run: |
+          git checkout .
           git checkout pages
           cp -r dist/* docs
           rm -r dist
