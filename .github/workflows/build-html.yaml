@@ -14,10 +14,6 @@ jobs:
       - uses: purcell/setup-emacs@master
         with:
           version: 27.2
-      - uses: actions/cache@v3
-        with:
-          path: ~/.org-timestamps
-          key: org-timestamps
       - run: make
       - name: Commit and push
         run: |
