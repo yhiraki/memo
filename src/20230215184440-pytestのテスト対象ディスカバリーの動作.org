@@ -1,10 +1,10 @@
 :PROPERTIES:
 :ID:       66195853-C066-4C3F-B790-848FEB3049C6
 :END:
-#+DATE: 2023-02-16 17:01:43
+#+DATE: 2023-02-27 23:45:03
 #+title: pytestのテスト対象ディスカバリーの動作
 
-1. =test_*.py= または =*_test.py= というファイルをカレントディレクトリから再帰的に探す
-2. ファイル内の =test_= で始まる関数やメソッドをテスト実行対象とする
+1. =test_*.py= または =*_test.py= というファイルをカレントディレクトリから再帰的に探す。
+2. ファイル内の =test_= で始まる関数やメソッドをテスト実行対象とする。
 
 参考: https://docs.pytest.org/en/7.2.x/explanation/goodpractices.html#conventions-for-python-test-discovery
