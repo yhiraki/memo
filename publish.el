@@ -24,11 +24,12 @@
       org-html-head-include-default-style nil
 	  org-html-head "\
 <link rel=\"stylesheet\" href=\"https://cdn.simplecss.org/simple.min.css\" />
-<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/tokyo-night-dark.min.css\" id=\"hljs-css\">\
+<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/tokyo-night-dark.min.css\" id=\"hljs-css\">
 ")
 (setq org-html-postamble-format
 	  '(("en" "\
 <p class=\"date\">Date: %d</p>
+<link rel=\"stylesheet\" href=\"static/css/main.css\" >\
 <script src=\"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js\"></script>
 <script src=\"static/js/main.js\"></script>
 ")))
