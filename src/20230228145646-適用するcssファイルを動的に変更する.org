@@ -2,7 +2,7 @@
 :ID:       1C90DCC2-04D1-43BE-A171-4F6D797041CE
 :END:
 #+title: 適用するCSSファイルを動的に変更する
-#+DATE: 2023-03-01 16:09:11
+#+DATE: 2023-03-01 17:09:00
 #+EXPORT_FILE_NAME: hljs-css-file-switching
 
 [[https://highlightjs.org/][highlight.js]]を利用するとHTML上で手軽にコードハイライトを利用できて便利です。
@@ -35,7 +35,7 @@
 [[file:../static/img/css-switch-if-dark-mode.png]]
 
 
-=window.matchMedia= というAPIを使って、darkモードの判定をします。
+=window.matchMedia= [fn:match-media]というAPIを使って、darkモードの判定をします。
 
 #+begin_src js
   const colorScheme =
@@ -61,4 +61,6 @@
 #+end_src
 
 * Footnotes
+
+[fn:match-media] https://developer.mozilla.org/ja/docs/Web/API/Window/matchMedia
 [fn:hljs-css] https://highlightjs.org/static/demo/
