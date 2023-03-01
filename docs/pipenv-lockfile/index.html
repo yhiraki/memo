@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2023-03-01 Wed 12:16 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>pipenvでLockファイルを管理する</title>
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/tokyo-night-dark.min.css" id="hljs-css">
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">pipenvでLockファイルを管理する</h1>
+<p>
+初回インストール <code>pytz</code> をインストールしてみます。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">pipenv install pytz
+</pre>
+</div>
+
+<pre class="example">
+Installing pytz...
+Installing dependencies from Pipfile.lock (c4d127)...
+To activate this project's virtualenv, run pipenv shell.
+Alternatively, run a command inside the virtualenv with pipenv run.
+</pre>
+
+
+<p>
+<code>Pipfile</code> と <code>Pipfile.lock</code> が出来上がった。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-toml">[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+pytz = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.10"
+</pre>
+</div>
+
+<p>
+<code>pipfile install</code> ではなく、直接 <code>Pipfile</code> を編集した場合、lockファイルは正しく更新されるでしょうか？
+新しいライブラリ tenacity の記載を追加します。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-toml">...
+[packages]
+tenacity = "*"
+...
+</pre>
+</div>
+
+<p>
+<code>install</code> コマンドの実行。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">pipenv install
+</pre>
+</div>
+
+<pre class="example">
+Installing dependencies from Pipfile.lock (da1365)...
+To activate this project's virtualenv, run pipenv shell.
+Alternatively, run a command inside the virtualenv with pipenv run.
+</pre>
+
+
+<p>
+問題なく、lockファイルが更新されました。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-diff">diff --git a/./Pipfile.lock b/./Pipfile.lock.orig
+index 12ecf4a..59dcdb3 100644
+--- a/./Pipfile.lock
++++ b/./Pipfile.lock.orig
+@@ -1,7 +1,7 @@
+ {
+     "_meta": {
+	 "hash": {
+-            "sha256": "ec965f1a58358aadf556a23972e8ffc6f50edc7186603f8e1b98fe01cdda1365"
++            "sha256": "271f1957d14aba3d78f98e69915563ae740c685814fe0bbf2a12cce250c4d127"
+	 },
+	 "pipfile-spec": 6,
+	 "requires": {
+@@ -23,14 +23,6 @@
+	     ],
+	     "index": "pypi",
+	     "version": "==2022.7.1"
+-        },
+-        "tenacity": {
+-            "hashes": [
+-                "sha256:2f277afb21b851637e8f52e6a613ff08734c347dc19ade928e519d7d2d8569b0",
+-                "sha256:43af037822bd0029025877f3b2d97cc4d7bb0c2991000a3d59d71517c5c969e0"
+-            ],
+-            "index": "pypi",
+-            "version": "==8.2.2"
+	 }
+     },
+     "develop": {}
+</pre>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2023-03-01 19:00:20</p>
+<link rel="stylesheet" href="static/css/main.css" ><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script src="static/js/main.js"></script>
+</div>
+</body>
+</html>

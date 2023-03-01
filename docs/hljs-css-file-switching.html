@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2023-03-01 Wed 12:16 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>適用するCSSファイルを動的に変更する</title>
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/tokyo-night-dark.min.css" id="hljs-css">
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">適用するCSSファイルを動的に変更する</h1>
+<p>
+<a href="https://highlightjs.org/">highlight.js</a>を利用するとHTML上で手軽にコードハイライトを利用できて便利です。
+しかし、CSSファイルがDark/Ligntモード用で別になっている<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>ので、
+ブラウザのダークモード設定によってこれを自動で切り替えるには、工夫が必要です。
+</p>
+
+<p>
+<code>tokyo-night-dark</code> というテーマを選んで設定してみます。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-html">&lt;head&gt;
+  &lt;link
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/tokyo-night-dark.min.css"
+    rel="stylesheet"
+    id="hljs-css"
+    /&gt;
+&lt;/head&gt;
+</pre>
+</div>
+
+<p>
+最近の主要なブラウザには、 Darkモードかどうかを判定する機能がついているので、
+これを使って、ロードするCSSファイルを切り替えましょう。
+</p>
+
+
+<div id="org7bb122e" class="figure">
+<p><img src="../static/img/css-switch-if-dark-mode.png" alt="css-switch-if-dark-mode.png">
+</p>
+</div>
+
+
+<p>
+<code>window.matchMedia</code> <sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup>というAPIを使って、darkモードの判定をします。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-js">const colorScheme =
+  window.matchMedia &amp;&amp; window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+</pre>
+</div>
+
+<p>
+あとはこの設定に従って、 <code>&lt;link&gt;</code> 要素の <code>href</code> 属性を対応するCSSファイルに入れ替えれば、
+動的に読み込むことができます。今回の場合はDarkモードがデフォルトなので、Lightモードの場合に
+改めてファイルの取得が行われます。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-js">const hljsStyleSheet = document.getElementById("hljs-css");
+const hljsCssBaseUrl =
+  "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/";
+hljsStyleSheet.setAttribute(
+  "href",
+  `${hljsCssBaseUrl}tokyo-night-${colorScheme}.min.css`
+);
+
+hljs.highlightAll();
+</pre>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+<a href="https://highlightjs.org/static/demo/">https://highlightjs.org/static/demo/</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+<a href="https://developer.mozilla.org/ja/docs/Web/API/Window/matchMedia">https://developer.mozilla.org/ja/docs/Web/API/Window/matchMedia</a>
+</p></div></div>
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+<p class="date">Date: 2023-03-01 18:15:48</p>
+<link rel="stylesheet" href="static/css/main.css" ><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script src="static/js/main.js"></script>
+</div>
+</body>
+</html>
