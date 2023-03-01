@@ -21,7 +21,7 @@
 (setq org-publish-use-timestamps-flag nil)
 (setq org-html-postamble t)
 (setq org-html-head-include-scripts nil
-      org-html-head-include-default-style nil
+	  org-html-head-include-default-style nil
 	  org-html-head "\
 <link rel=\"stylesheet\" href=\"https://cdn.simplecss.org/simple.min.css\" />
 <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/tokyo-night-dark.min.css\" id=\"hljs-css\">
