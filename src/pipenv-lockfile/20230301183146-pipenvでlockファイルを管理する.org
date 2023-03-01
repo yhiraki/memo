@@ -1,0 +1,101 @@
+:PROPERTIES:
+:ID:       E073A29D-B048-4BCF-A1D0-B730861C88BB
+:END:
+#+title: pipenvでLockファイルを管理する
+#+DATE: 2023-03-01 19:00:20
+#+export_file_name: index
+# https://yhiraki.github.io/memo/pipenv-lockfile
+
+初回インストール =pytz= をインストールしてみます。
+
+#+begin_src sh
+pipenv install pytz
+#+end_src
+
+#+RESULTS[d9e7d7ad149fd68f60d67a1c77961720c8dea49d]:
+: Installing pytz...
+: Installing dependencies from Pipfile.lock (c4d127)...
+: To activate this project's virtualenv, run pipenv shell.
+: Alternatively, run a command inside the virtualenv with pipenv run.
+
+=Pipfile= と =Pipfile.lock= が出来上がった。
+
+#+begin_src toml
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+pytz = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.10"
+#+end_src
+
+# Pipfile.lockを退避する
+
+#+begin_src sh :exports none
+cp Pipfile.lock{.oirg}
+#+end_src
+
+=pipfile install= ではなく、直接 =Pipfile= を編集した場合、lockファイルは正しく更新されるでしょうか？
+新しいライブラリ tenacity の記載を追加します。
+
+#+begin_src toml
+...
+[packages]
+tenacity = "*"
+...
+#+end_src
+
+=install= コマンドの実行。
+
+#+begin_src sh
+pipenv install
+#+end_src
+
+#+RESULTS[6767cf9743a0a0383287f63168b960707431012d]:
+: Installing dependencies from Pipfile.lock (da1365)...
+: To activate this project's virtualenv, run pipenv shell.
+: Alternatively, run a command inside the virtualenv with pipenv run.
+
+問題なく、lockファイルが更新されました。
+
+#+begin_src sh :exports results :wrap src diff
+  git diff --no-index ./Pipfile.lock* || true
+#+end_src
+
+#+RESULTS[603b727ba0c4812d36a585f72744ce0505077e19]:
+#+begin_src diff
+diff --git a/./Pipfile.lock b/./Pipfile.lock.orig
+index 12ecf4a..59dcdb3 100644
+--- a/./Pipfile.lock
++++ b/./Pipfile.lock.orig
+@@ -1,7 +1,7 @@
+ {
+     "_meta": {
+         "hash": {
+-            "sha256": "ec965f1a58358aadf556a23972e8ffc6f50edc7186603f8e1b98fe01cdda1365"
++            "sha256": "271f1957d14aba3d78f98e69915563ae740c685814fe0bbf2a12cce250c4d127"
+         },
+         "pipfile-spec": 6,
+         "requires": {
+@@ -23,14 +23,6 @@
+             ],
+             "index": "pypi",
+             "version": "==2022.7.1"
+-        },
+-        "tenacity": {
+-            "hashes": [
+-                "sha256:2f277afb21b851637e8f52e6a613ff08734c347dc19ade928e519d7d2d8569b0",
+-                "sha256:43af037822bd0029025877f3b2d97cc4d7bb0c2991000a3d59d71517c5c969e0"
+-            ],
+-            "index": "pypi",
+-            "version": "==8.2.2"
+         }
+     },
+     "develop": {}
+#+end_src

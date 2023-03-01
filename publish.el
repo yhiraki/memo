@@ -34,11 +34,9 @@
 <script src=\"static/js/main.js\"></script>
 ")))
 
-(defvar org-babel-default-header-args:mermaid
-  '((:results . "file") (:exports . "results"))
-  "Default arguments for evaluatiing a mermaid source block.")
-(defvar org-babel-default-header-args:plantuml
-  '((:results . "file") (:exports . "results"))
-  "Default arguments for evaluating a plantuml source block.")
+(defvar org-babel-default-header-args:mermaid '((:results . "file") (:exports . "results")))
+(defvar org-babel-default-header-args:plantuml '((:results . "file") (:exports . "results")))
+(defvar org-babel-default-header-args:shell '((:results . "file") (:exports . "results") (:exports . "both")))
+(defvar org-babel-default-header-args:sh '((:results . "file") (:exports . "results") (:exports . "both")))
 
 (org-publish-all)
