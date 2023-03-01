@@ -1,0 +1,64 @@
+:PROPERTIES:
+:ID:       1C90DCC2-04D1-43BE-A171-4F6D797041CE
+:END:
+#+title: 適用するCSSファイルを動的に変更する
+#+DATE: 2023-03-01 16:09:11
+#+EXPORT_FILE_NAME: hljs-css-file-switching
+
+[[https://highlightjs.org/][highlight.js]]を利用するとHTML上で手軽にコードハイライトを利用できて便利です。
+しかし、CSSファイルがDark/Ligntモード用で別になっている[fn:hljs-css]ので、ブラウザのダークモード設定によってこれを自動で切り替えるには、
+工夫が必要です。
+
+=tokyo-night-dark= というテーマを選んで設定してみます。
+
+#+begin_src html
+  <head>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/tokyo-night-dark.min.css"
+      rel="stylesheet"
+      id="hljs-css"
+      />
+  </head>
+#+end_src
+
+最近のブラウザには、 Darkモードかどうかを判定する機能がついていることがあるので、
+これを使って、ロードするCSSファイルを切り替えましょう。
+
+#+begin_src mermaid :file ../static/img/css-switch-if-dark-mode.png
+  flowchart TD
+     Start --> D{Is dark mode?}
+     D -->|yes| A1[Load dark.css]
+     D -->|no| A2[Load light.css]
+#+end_src
+
+#+RESULTS:
+[[file:../static/img/css-switch-if-dark-mode.png]]
+
+
+=window.matchMedia= というAPIを使って、darkモードの判定をします。
+
+#+begin_src js
+  const colorScheme =
+    window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+#+end_src
+
+あとはこの設定に従って、 =<link>= 要素の =href= 属性を対応するCSSファイルに入れ替えれば、
+動的に読み込むことができます。今回の場合はDarkモードがデフォルトなので、Lightモードの場合に
+改めてファイルの取得が行われます。
+
+#+begin_src js
+  const hljsStyleSheet = document.getElementById("hljs-css");
+  const hljsCssBaseUrl =
+    "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/";
+  hljsStyleSheet.setAttribute(
+    "href",
+    `${hljsCssBaseUrl}tokyo-night-${colorScheme}.min.css`
+  );
+
+  hljs.highlightAll();
+#+end_src
+
+* Footnotes
+[fn:hljs-css] https://highlightjs.org/static/demo/

@@ -13,7 +13,7 @@
 		 :with-toc t)
 		("static"
 		 :base-directory "./static"
-		 :base-extension "css\\|js"
+		 :base-extension "css\\|js\\|png\\|jpg"
 		 :publishing-directory "./dist/static"
 		 :publishing-function org-publish-attachment
 		 :recursive t)
@@ -33,4 +33,12 @@
 <script src=\"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js\"></script>
 <script src=\"static/js/main.js\"></script>
 ")))
+
+(defvar org-babel-default-header-args:mermaid
+  '((:results . "file") (:exports . "results"))
+  "Default arguments for evaluatiing a mermaid source block.")
+(defvar org-babel-default-header-args:plantuml
+  '((:results . "file") (:exports . "results"))
+  "Default arguments for evaluating a plantuml source block.")
+
 (org-publish-all)
