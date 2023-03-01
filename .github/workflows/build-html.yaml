@@ -13,7 +13,7 @@ jobs:
           fetch-depth: 0
       - uses: purcell/setup-emacs@v3.0
         with:
-          version: 27.2
+          version: 28.2
       - name: build
         shell: 'script -q -e -c "bash {0}" /dev/null'
         run: make
