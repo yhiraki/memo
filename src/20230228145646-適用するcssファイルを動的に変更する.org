@@ -2,12 +2,13 @@
 :ID:       1C90DCC2-04D1-43BE-A171-4F6D797041CE
 :END:
 #+title: 適用するCSSファイルを動的に変更する
-#+DATE: 2023-03-01 17:09:00
+#+DATE: 2023-03-01 18:15:48
 #+EXPORT_FILE_NAME: hljs-css-file-switching
+# https://yhiraki.github.io/memo/hljs-css-file-switching
 
 [[https://highlightjs.org/][highlight.js]]を利用するとHTML上で手軽にコードハイライトを利用できて便利です。
-しかし、CSSファイルがDark/Ligntモード用で別になっている[fn:hljs-css]ので、ブラウザのダークモード設定によってこれを自動で切り替えるには、
-工夫が必要です。
+しかし、CSSファイルがDark/Ligntモード用で別になっている[fn:hljs-css]ので、
+ブラウザのダークモード設定によってこれを自動で切り替えるには、工夫が必要です。
 
 =tokyo-night-dark= というテーマを選んで設定してみます。
 
@@ -21,7 +22,7 @@
   </head>
 #+end_src
 
-最近のブラウザには、 Darkモードかどうかを判定する機能がついていることがあるので、
+最近の主要なブラウザには、 Darkモードかどうかを判定する機能がついているので、
 これを使って、ロードするCSSファイルを切り替えましょう。
 
 #+begin_src mermaid :file ../static/img/css-switch-if-dark-mode.png
