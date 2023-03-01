@@ -1,7 +1,7 @@
 :PROPERTIES:
 :ID:       06FC51D1-8E0E-4D23-B2E1-7C31E4C95382
 :END:
-#+DATE: 2023-03-01 09:46:13
+#+DATE: 2023-03-02 08:48:47
 #+EXPORT_FILE_NAME: timeit-decorator
 #+title: timeitデコレータ
 # https://yhiraki.github.io/memo/timeit-decorator

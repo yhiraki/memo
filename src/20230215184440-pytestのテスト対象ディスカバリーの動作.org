@@ -1,7 +1,7 @@
 :PROPERTIES:
 :ID:       66195853-C066-4C3F-B790-848FEB3049C6
 :END:
-#+DATE: 2023-03-01 09:51:21
+#+DATE: 2023-03-02 08:48:51
 #+EXPORT_FILE_NAME: pytest-discovery
 #+title: pytestのテスト対象ディスカバリーの動作
 # https://yhiraki.github.io/memo/pytest-discovery

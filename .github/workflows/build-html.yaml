@@ -20,8 +20,8 @@ jobs:
       - name: Commit and push
         run: |
           git checkout pages
-          cp -r dist/* docs
-          rm -r dist
+          rm -r docs
+          mv dist docs
           git status
           git config user.name yhiraki
           git config user.email yhiraki@users.noreply.github.com
