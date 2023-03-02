@@ -2,9 +2,9 @@
 :ID:       E073A29D-B048-4BCF-A1D0-B730861C88BB
 :END:
 #+title: pipenvでLockファイルを管理する
-#+DATE: 2023-03-01 19:00:20
+#+DATE: 2023-03-02 09:02:44
 #+export_file_name: index
-# https://yhiraki.github.io/memo/pipenv-lockfile
+# https://yhiraki.github.io/memo/posts/pipenv-lockfile
 
 初回インストール =pytz= をインストールしてみます。
 

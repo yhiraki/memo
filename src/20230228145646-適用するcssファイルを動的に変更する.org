@@ -2,9 +2,9 @@
 :ID:       1C90DCC2-04D1-43BE-A171-4F6D797041CE
 :END:
 #+title: 適用するCSSファイルを動的に変更する
-#+DATE: 2023-03-02 08:50:05
+#+DATE: 2023-03-02 09:02:22
 #+EXPORT_FILE_NAME: hljs-css-file-switching
-# https://yhiraki.github.io/memo/hljs-css-file-switching
+# https://yhiraki.github.io/memo/posts/hljs-css-file-switching
 
 [[https://highlightjs.org/][highlight.js]]を利用するとHTML上で手軽にコードハイライトを利用できて便利です。
 しかし、CSSファイルがDark/Ligntモード用で別になっている[fn:hljs-css]ので、

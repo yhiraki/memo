@@ -1,10 +1,10 @@
 :PROPERTIES:
 :ID:       66195853-C066-4C3F-B790-848FEB3049C6
 :END:
-#+DATE: 2023-03-02 08:48:51
+#+DATE: 2023-03-02 09:02:07
 #+EXPORT_FILE_NAME: pytest-discovery
 #+title: pytestのテスト対象ディスカバリーの動作
-# https://yhiraki.github.io/memo/pytest-discovery
+# https://yhiraki.github.io/memo/posts/pytest-discovery
 
 1. =test_*.py= または =*_test.py= というファイルをカレントディレクトリから再帰的に探す。
 2. ファイル内の =test_= で始まる関数やメソッドをテスト実行対象とする。

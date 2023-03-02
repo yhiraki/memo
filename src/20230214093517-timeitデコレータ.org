@@ -1,10 +1,10 @@
 :PROPERTIES:
 :ID:       06FC51D1-8E0E-4D23-B2E1-7C31E4C95382
 :END:
-#+DATE: 2023-03-02 08:48:47
+#+DATE: 2023-03-02 09:02:00
 #+EXPORT_FILE_NAME: timeit-decorator
 #+title: timeitデコレータ
-# https://yhiraki.github.io/memo/timeit-decorator
+# https://yhiraki.github.io/memo/posts/timeit-decorator
 * 関数の実行時間を計測する
 
 #+name: timeit
