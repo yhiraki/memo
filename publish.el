@@ -3,7 +3,7 @@
 	  '(("Memo"
 		 :base-directory "./src"
 		 :html-doctype "html5"
-		 :publishing-directory "./dist/posts"
+		 :publishing-directory "./dist/memo/posts"
 		 :publishing-function org-html-publish-to-html
 		 :recursive t
 		 :section-numbers nil
@@ -14,13 +14,13 @@
 		("static"
 		 :base-directory "./static"
 		 :base-extension "css\\|js"
-		 :publishing-directory "./dist/static"
+		 :publishing-directory "./dist/memo/static"
 		 :publishing-function org-publish-attachment
 		 :recursive t)
 		("images"
 		 :base-directory "./img"
 		 :base-extension "png\\|jpg"
-		 :publishing-directory "./dist/img"
+		 :publishing-directory "./dist/memo/img"
 		 :publishing-function org-publish-attachment
 		 :recursive t)
 		))
@@ -36,8 +36,8 @@
 	  '(("en" "\
 <p class=\"date\">Date: %d</p>
 <script src=\"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js\"></script>
-<link rel=\"stylesheet\" href=\"/static/css/main.css\">
-<script src=\"/static/js/main.js\"></script>
+<link rel=\"stylesheet\" href=\"/memo/static/css/main.css\">
+<script src=\"/memo/static/js/main.js\"></script>
 ")))
 
 (defvar org-babel-default-header-args:mermaid '((:results . "file") (:exports . "results")))

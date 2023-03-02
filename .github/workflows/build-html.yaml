@@ -21,7 +21,7 @@ jobs:
         run: |
           git checkout pages
           rm -r docs
-          mv dist docs
+          mv dist/memo docs
           git status
           git config user.name yhiraki
           git config user.email yhiraki@users.noreply.github.com
